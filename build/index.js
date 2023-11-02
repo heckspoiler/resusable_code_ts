@@ -4,7 +4,6 @@ const CsvFileReader_1 = require("./CsvFileReader");
 const MatchResult_1 = require("./MatchResult");
 const reader = new CsvFileReader_1.CsvFileReader('football.csv');
 reader.read();
-console.log(reader.data);
 //enum --> enumeration
 // what is a enu? they follow near-identical sntax rules as nomral objects (except for the = instead of doppelpunkt)
 // creates an object with the same keys and values when converted from TS to JS. so if converted to JS, it turns into an object.

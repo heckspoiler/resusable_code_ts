@@ -4,8 +4,6 @@ import { MatchResult } from './MatchResult';
 const reader = new CsvFileReader('football.csv');
 reader.read();
 
-console.log(reader.data);
-
 //enum --> enumeration
 
 // what is a enu? they follow near-identical sntax rules as nomral objects (except for the = instead of doppelpunkt)
