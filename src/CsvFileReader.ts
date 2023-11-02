@@ -1,12 +1,15 @@
 import fs from 'fs';
-import { dateStringToDate } from './utils';
 import { MatchResult } from './MatchResult';
 
 type MatchData = [Date, string, string, number, number, MatchResult, string];
 
-export class CsvFileReader {
-  data: MatchData[] = [];
+export abstract class CsvFileReader<T> {
+  // <T> makes this class a generic class (it's like an argument that gets passed in). "T" is customary for the name of the "argument", but it could be named whatever
+  data: T[] = [];
   constructor(public filename: string) {}
+
+  abstract mapRow(row: string[]): T;
+
   read(): void {
     this.data = fs
       .readFileSync(this.filename, {
@@ -17,17 +20,5 @@ export class CsvFileReader {
         return row.split(',');
       })
       .map(this.mapRow);
-  }
-
-  mapRow(row: string[]): MatchData {
-    return [
-      dateStringToDate(row[0]),
-      row[1],
-      row[2],
-      parseInt(row[3]),
-      parseInt(row[4]),
-      row[5] as MatchResult, // that's a so called type assertion
-      row[6],
-    ];
   }
 }
