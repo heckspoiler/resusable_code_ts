@@ -1,4 +1,5 @@
 import { CsvFileReader } from './CsvFileReader';
+import { MatchResult } from './MatchResult';
 
 const reader = new CsvFileReader('football.csv');
 reader.read();
@@ -6,12 +7,6 @@ reader.read();
 console.log(reader.data);
 
 //enum --> enumeration
-
-enum MatchResult {
-  HomeWin = 'H',
-  AwayWin = 'A',
-  Draw = 'D',
-}
 
 // what is a enu? they follow near-identical sntax rules as nomral objects (except for the = instead of doppelpunkt)
 // creates an object with the same keys and values when converted from TS to JS. so if converted to JS, it turns into an object.

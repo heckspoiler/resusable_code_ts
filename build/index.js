@@ -1,16 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const CsvFileReader_1 = require("./CsvFileReader");
+const MatchResult_1 = require("./MatchResult");
 const reader = new CsvFileReader_1.CsvFileReader('football.csv');
 reader.read();
 console.log(reader.data);
 //enum --> enumeration
-var MatchResult;
-(function (MatchResult) {
-    MatchResult["HomeWin"] = "H";
-    MatchResult["AwayWin"] = "A";
-    MatchResult["Draw"] = "D";
-})(MatchResult || (MatchResult = {}));
 // what is a enu? they follow near-identical sntax rules as nomral objects (except for the = instead of doppelpunkt)
 // creates an object with the same keys and values when converted from TS to JS. so if converted to JS, it turns into an object.
 // primary goal is to signal to other engineers that these are all closely related values, there aren't big advantages to using enums when it comes to using TS compiler, it's mainly for signaling.
@@ -18,10 +13,10 @@ var MatchResult;
 so we shouldn't/cannot add new values to the enum while executing the code. They should be pre-defined, before the code runs */
 let manUnitedWins = 0;
 for (let match of reader.data) {
-    if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
+    if (match[1] === 'Man United' && match[5] === MatchResult_1.MatchResult.HomeWin) {
         manUnitedWins++;
     }
-    else if (match[2] === 'Man United' && match[5] === MatchResult.AwayWin) {
+    else if (match[2] === 'Man United' && match[5] === MatchResult_1.MatchResult.AwayWin) {
         manUnitedWins++;
     }
 }
