@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const CsvFileReader_1 = require("./CsvFileReader");
+const MatchReader_1 = require("./MatchReader");
 const MatchResult_1 = require("./MatchResult");
-const reader = new CsvFileReader_1.CsvFileReader('football.csv');
+const reader = new MatchReader_1.MatchReader('football.csv');
 reader.read();
 //enum --> enumeration
 // what is a enu? they follow near-identical sntax rules as nomral objects (except for the = instead of doppelpunkt)
