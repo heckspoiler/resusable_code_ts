@@ -18,9 +18,6 @@ MatchReader.load();
 /* enums are used whenever we have a small fixed set of values that are all closely related and known at compile time, 
 so we shouldn't/cannot add new values to the enum while executing the code. They should be pre-defined, before the code runs */
 
-const summary = new Summary(
-  new WinsAnalysis('Man United'),
-  new ConsoleReport()
-);
+const summary = new Summary(new WinsAnalysis('Man United'), new HtmlReport());
 
 summary.buildAndPrintReport(MatchReader.matches);
