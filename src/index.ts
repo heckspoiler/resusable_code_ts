@@ -1,8 +1,12 @@
 import { MatchReader } from './MatchReader';
-import { MatchResult } from './MatchResult';
 import { CsvFileReader } from './inheritance/CsvFileReader';
+import { ConsoleReport } from './reportTargets/ConsoleReport';
+import { WinsAnalysis } from './analyzers/WinsAnalysis';
+import { Summary } from './Summary';
 
-const reader = new MatchReader(CsvFileReader);
+const csvFileReader = new CsvFileReader('football.csv');
+
+const reader = new MatchReader(csvFileReader);
 MatchReader.load();
 
 //enum --> enumeration
@@ -13,4 +17,9 @@ MatchReader.load();
 /* enums are used whenever we have a small fixed set of values that are all closely related and known at compile time, 
 so we shouldn't/cannot add new values to the enum while executing the code. They should be pre-defined, before the code runs */
 
-console.log(`ManU won ${manUnitedWins} times, that's pretty fucking bad lel`);
+const summary = new Summary(
+  new WinsAnalysis('Man United'),
+  new ConsoleReport()
+);
+
+summary.buildAndPrintReport(MatchReader.matches);
