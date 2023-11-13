@@ -1,0 +1,17 @@
+Eventually it boils down to inheritance vs. componsition. If things are unclear, go back to composition and rewatch.
+
+##inheritance
+
+inheritance is the case where there was an abscract class CsvFileReader and some child classes called MatchReader. 
+CsvFileReader is the object that handles the reading of general csv files and we extended this class with the class MatchReader to make it more specific and customitzed more behaviour. 
+
+##composition   
+
+was charactarized by the class called MatchReader
+
+
+the difference boils down to the "is a" or "has a" relationship between classes.
+
+MatchReader is a child instance of CsvFileReader and in the case of composition we have a has a relationship. MatchReader had a reference to some other sideObject like CsvFileReader. 
+
+

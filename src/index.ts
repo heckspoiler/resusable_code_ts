@@ -1,8 +1,9 @@
 import { MatchReader } from './MatchReader';
 import { MatchResult } from './MatchResult';
+import { CsvFileReader } from './inheritance/CsvFileReader';
 
-const reader = new MatchReader('football.csv');
-reader.read();
+const reader = new MatchReader(CsvFileReader);
+MatchReader.load();
 
 //enum --> enumeration
 
@@ -11,15 +12,5 @@ reader.read();
 // primary goal is to signal to other engineers that these are all closely related values, there aren't big advantages to using enums when it comes to using TS compiler, it's mainly for signaling.
 /* enums are used whenever we have a small fixed set of values that are all closely related and known at compile time, 
 so we shouldn't/cannot add new values to the enum while executing the code. They should be pre-defined, before the code runs */
-
-let manUnitedWins = 0;
-
-for (let match of reader.data) {
-  if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
-    manUnitedWins++;
-  } else if (match[2] === 'Man United' && match[5] === MatchResult.AwayWin) {
-    manUnitedWins++;
-  }
-}
 
 console.log(`ManU won ${manUnitedWins} times, that's pretty fucking bad lel`);

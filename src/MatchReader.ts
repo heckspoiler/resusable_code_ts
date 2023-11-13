@@ -1,5 +1,5 @@
 import { dateStringToDate } from './utils';
-import { MatchResult } from './MatchResult';
+import { MatchData } from './MatchData';
 
 interface DataReader {
   read(): void;
@@ -7,5 +7,10 @@ interface DataReader {
 }
 
 export class MatchReader {
+  matches: MatchData[] = [];
   constructor(public reader: DataReader) {}
+
+  load(): {
+    this;
+  };
 }
